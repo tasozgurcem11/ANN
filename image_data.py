@@ -32,4 +32,24 @@ def generate_noise(image):
         show_image(image)
     return noise_list
 
+def image_list_to_array(image_list):
+    t = 0
+    w = 50
+    h = 13
+    # image array oluştururken bayes için ilk başta tüm vektör 1 olarak tanımlanmıştır ancak son satır değişmediği için sadece son satır 1 kalır.
+    image_array = [[1 for x in range(w)] for y in range(h)]
+    for image in image_list:
+        image_array_temporary = []
+        for i in range (5):
+            for k in range(10):
+                image_array_temporary.append(image[i][k])
+        for i in range(len(image_array_temporary)):
+            image_array[t][i] = image_array_temporary[i]
+
+        t = t + 1
+    return image_array
+
+
+
+
 
