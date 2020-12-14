@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import math
+
 
 def add_noise(image):
     noisy = image + 0.2 * np.random.rand(5, 10)
@@ -48,6 +50,15 @@ def image_list_to_array(image_list):
 
         t = t + 1
     return image_array
+
+#aktivasyon fonksiyonu için tanh seçilmiştir.
+def activation_function(list):
+    new_list =[]
+    new_list = [[math.tanh(j) for j in i] for i in list]
+    return new_list
+
+
+
 
 
 
